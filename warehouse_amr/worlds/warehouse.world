@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="warehouse_world">
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+        <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <ros>
+        <namespace>/</namespace>
+      </ros>
+      <update_rate>10.0</update_rate>
+    </plugin>
+    <!-- Boundary walls -->
+    <model name="back_wall">
+      <static>true</static>
+      <pose>-4 0 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.15 8 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.15 8 2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="front_wall">
+      <static>true</static>
+      <pose>4 0 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.15 8 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.15 8 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="left_wall">
+      <static>true</static>
+      <pose>0 4 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>8 0.15 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>8 0.15 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="right_wall">
+      <static>true</static>
+      <pose>0 -4 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>8 0.15 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>8 0.15 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Shelf rows -->
+    <model name="shelf_row_1">
+      <static>true</static>
+      <pose>-1.5 1.2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.45 0.30 0.12 1</ambient>
+            <diffuse>0.45 0.30 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="shelf_row_2">
+      <static>true</static>
+      <pose>1.5 1.2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.45 0.30 0.12 1</ambient>
+            <diffuse>0.45 0.30 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="shelf_row_3">
+      <static>true</static>
+      <pose>-1.5 -1.2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.45 0.30 0.12 1</ambient>
+            <diffuse>0.45 0.30 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="shelf_row_4">
+      <static>true</static>
+      <pose>1.5 -1.2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.0 0.35 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.45 0.30 0.12 1</ambient>
+            <diffuse>0.45 0.30 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+        <model name="moving_worker">
+        <static>false</static>
+      <pose>0 -2.2 0.6 0 0 0</pose>
+      <link name="link">
+       <gravity>false</gravity>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.35 0.35 1.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.35 0.35 1.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.15 0.1 1</ambient>
+            <diffuse>0.9 0.15 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>	
+
+  </world>
+</sdf>
